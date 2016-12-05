@@ -35,11 +35,13 @@ class CalculatorBrain{
         "/" : .BinaryOperation(divide),
         "+" : .BinaryOperation(add),
         "-" : .BinaryOperation(subtract),
-        "=" : .Equal
+        "=" : .Equal,
+        "AC" : .AC
     ]
     enum Operation{
         case BinaryOperation((Double,Double) -> Double)
         case Equal
+        case AC
     }
     func performOperation(symbol: String){
         if let operation = operations[symbol]{
@@ -50,6 +52,8 @@ class CalculatorBrain{
                     accumulator = binary!.binaryFunction(binary!.firstOperand, accumulator)
                     binary = nil
                 }
+            case .AC :
+                accumulator = 0
             }
         }
         

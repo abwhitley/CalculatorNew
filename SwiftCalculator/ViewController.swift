@@ -14,8 +14,7 @@ class ViewController: UIViewController {
     
 
     var inputingNumber : Bool = false
-    var firstNumber : Int = 0
-    var secondNumber : Int = 0
+ 
     var brain = CalculatorBrain()
     @IBAction func touchDigit(_ sender: AnyObject) {
         let digit = sender.currentTitle!
@@ -45,6 +44,9 @@ class ViewController: UIViewController {
             brain.performOperation(symbol: mathematicalSymbol!)
         }
         displayValue = brain.result
+    }
+    @IBAction func allClear(_ sender: Any) {
+        displayLabel!.text = "03"
     }
 
     
